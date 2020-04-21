@@ -1,0 +1,71 @@
+spring:
+  thymeleaf:
+    prefix: classpath:/templates/
+    mode: HTML
+    cache: false
+    encoding: UTF-8
+    #新版本不支持content-type: text/html，故新写法---?
+
+  datasource:
+    username: root
+    password: 661224
+    url: jdbc:mysql://localhost:3306/mybatis?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    initialization-mode: always
+    #    schema:
+    #      - classpath:sql/department.sql
+    #      - classpath:sql/employee.sql
+    #配置数据源
+    type: com.alibaba.druid.pool.DruidDataSource
+    #   数据源其他配置
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    #   配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+    filters: stat,wall,log4j
+    maxPoolPreparedStatementPerConnectionSize: 20
+    useGlobalDataSourceStat: true
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+  #hiddenmethod开启
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
+#服务器配置
+server:
+#  servlet:
+#    context-path: /website
+  #开启异常的通知
+  error:
+    include-exception: true
+  port: 8888
+
+#mybatis配置
+#config-location: classpath:mybatis/mybatis-config.xml
+mybatis:
+  #mapper-locations: classpath:mybatis/mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+#spyder的配置:image位置，编码
+com:
+  lvyanwei:
+    elward:
+      imageStoragePath: F:\IJ-idea\springboot-07-data-mybatis\src\main\resources\spyderImg
+      siteCharset: utf-8
+
+      ncovDxy: https://ncov.dxy.cn/ncovh5/view/pneumonia
+      #保存数据库或者文件
+
+logging:
+  level:
+    root: debug
