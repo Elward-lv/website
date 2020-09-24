@@ -18,7 +18,7 @@ public class MailUtil {
 
     private final static String NAME = "lvyanweiAccount@163.com";
 
-    private final static String PASSWORD = "QJMFNEEDMSGYQAAZ";
+    private final static String PASSWORD = "XXXXX";
 
     public static int sendEmail(String toEmail){
         //设置发送邮件的参数
